@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -36,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor= sharedPref.edit();
                 editor.putString("oldItem",textView.getText().toString());
                 editor.commit();
+
+                Animation animation = new AlphaAnimation(1.0f,0.0f);
+                animation.setDuration(1000);
+                button.startAnimation(animation);
 
             }
         });
